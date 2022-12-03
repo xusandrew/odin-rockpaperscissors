@@ -10,12 +10,47 @@ function playRound (playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase()
     computerSelection = computerSelection.toLowerCase()
     if (playerSelection === computerSelection)
-        return "Its a tie!"
+        return "Tie"
     else if ((playerSelection === "rock" && computerSelection === "scissors") ||
             (playerSelection === "paper" && computerSelection === "rock") ||
             (playerSelection === "scissors" && computerSelection === "paper")
             )
-        return "You win!, " + playerSelection + " beats " + computerSelection
+        return "Player"
     else 
-        return "You lose! " + computerSelection + " beats " + playerSelection
+        return "Computer"
 }
+
+function game(){
+    let playerScore = 0
+    let computerScore = 0
+
+    for (let i = 0; i < 5; i++){
+        let playerSelection = prompt("Please select your choice: (Rock, Paper, Scissors)", "")
+        let computerSelection = getComputerChoice()
+        
+        let result = playRound(playerSelection, computerSelection)
+        if (result === "Tie"){
+            console.log("Its a tie!, you both picked " + playerSelection)
+        }
+        else if (result == "Player") {
+            console.log("You win!, " + playerSelection + " beats " + computerSelection)
+            playerScore++;
+        }
+        else if (result == "Computer"){
+            console.log("You lose! " + computerSelection + " beats " + playerSelection)
+            computerScore++;
+        }
+    }
+
+    console.log("Final Scores")
+    console.log("Player: " + playerScore)
+    console.log("Computer: " + computerScore)
+    if (playerScore === computerScore)
+        console.log("Tie")
+    else if (playerScore > computerScore)
+        console.log("Player Wins")
+    else 
+        console.log("Computer Wins")
+}
+
+game()
