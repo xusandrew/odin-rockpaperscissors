@@ -6,6 +6,11 @@ function getComputerChoice() {
   if (choice === 3) return "scissors";
 }
 
+function updateScore(){
+    results1.textContent = "Player: " + playerScore;
+    results2.textContent = "Computer: " + computerScore;
+}
+
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
@@ -20,10 +25,12 @@ function playRound(playerSelection, computerSelection) {
   ) {
     console.log("You win!, " + playerSelection + " beats " + computerSelection);
     playerScore++;
+    updateScore();
     return "Player";
   } else {
     console.log("You lose! " + computerSelection + " beats " + playerSelection);
     computerScore++;
+    updateScore();
     return "Computer";
   }
 }
@@ -34,6 +41,9 @@ let computerScore = 0;
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
+
+const results1 = document.getElementById("results1");
+const results2 = document.getElementById("results2");
 
 rockButton.addEventListener("click", (e) => {
     playRound("rock", getComputerChoice());
