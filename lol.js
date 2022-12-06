@@ -7,8 +7,9 @@ function getComputerChoice(){
 }
 
 function playRound (playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase()
-    computerSelection = computerSelection.toLowerCase()
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+
     if (playerSelection === computerSelection)
         return "Tie"
     else if ((playerSelection === "rock" && computerSelection === "scissors") ||
@@ -53,4 +54,12 @@ function game(){
         console.log("Computer Wins")
 }
 
-game()
+// const rockButton = document.getElementById("rock");
+// const paperButton = document.getElementById("paper");
+// const scissorsButton = document.getElementById("scissors");
+
+// rockButton.addEventListener('click', (e) => {
+//     playRound("rock", )
+
+
+// });
